@@ -1,5 +1,5 @@
 # mng_dsks
 Standby hard disks by cron
 ```
-./mng_dsks /dev/sdb /dev/sdc
+*/1 0-6 * * * /opt/scripts/mng_dsks /dev/sdb /dev/sdc
 ```
