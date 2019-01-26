@@ -1,0 +1,23 @@
+#/bin/bash
+
+clear
+
+while [ "$1" != "" ]; do
+
+    echo "Device" $1
+
+    #check_state=$(sudo smartctl -i -n standby $1 | grep STANDBY)
+    check_state=`sudo smartctl -i -n standby $1 | grep STANDBY`
+    
+    echo $check_state
+    
+    if [[ $check_state ]]
+      then
+	      echo "is in standby mode"
+      else
+	      hdparm -Y $1
+    fi
+    
+    shift
+
+done
